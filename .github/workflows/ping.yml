@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Render
-        run: curl -s "https://n8n-satyam.onrender.com/healthz"
+        run: curl -s "https://n8n-satyam-y9kl.onrender.com/healthz"
 
       # Fix 2: 60-day auto-pause rokne ke liye keepalive check
       - uses: actions/checkout@v4
