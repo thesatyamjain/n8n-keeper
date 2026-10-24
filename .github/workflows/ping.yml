@@ -2,11 +2,12 @@ name: Keep n8n Awake
 
 on:
   schedule:
+    # Fix 1: Har 5 minute me chalega (agar delay bhi hua, to bhi 15 min limit se pehle ping ho jayega)
     - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write # Repo me auto-commit karne ke liye
 
 jobs:
   ping:
@@ -15,5 +16,6 @@ jobs:
       - name: Ping Render
         run: curl -s "https://n8n-satyam.onrender.com/healthz"
 
+      # Fix 2: 60-day auto-pause rokne ke liye keepalive check
       - uses: actions/checkout@v4
       - uses: gautamkrishnar/keepalive-workflow@v2
